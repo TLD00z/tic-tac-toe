@@ -8,8 +8,8 @@ function Game() {
 
   //Declaring a Winner
   useEffect(() => {
-    const aWinner = calculateWinner(squares)
-    setWinner(aWinner);
+    const newWinner = calculateWinner(squares);
+    setWinner(newWinner);
   }, [squares]);
 
   //function to check if a player has won.
@@ -41,11 +41,16 @@ function Game() {
 
   //Handle player
   const handleClick = (i) => {
-    const squares2 = squares.slice();
-    if(calculateWinner(squares2)|| squares2[1]) {return;}
-    squares2[i] = xIsNext ? "X" : "O"
-    setSquares(squares2)
-    setXIsNext((prevState)=>!prevState)
+    const newSquares = squares.slice();
+
+    if (calculateWinner(newSquares) || newSquares[i]) {
+      return;
+    }
+
+    newSquares[i] = xIsNext ? "X" : "O";
+
+    setSquares(newSquares);
+    setXIsNext((prevState) => !prevState);
   };
 
   //Restart game
