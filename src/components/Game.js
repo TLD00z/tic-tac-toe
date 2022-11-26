@@ -51,7 +51,7 @@ function Game() {
   //Restart game
   const handlRestart = () => {
     setSquares(Array(9).fill(null));
-    setXIsNext(true);;
+    setXIsNext(true);
   };
 
   return (
